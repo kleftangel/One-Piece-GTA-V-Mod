@@ -1,0 +1,9 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+  </Configurations>
+  <Project Path="LuffyMod/LuffyMod.csproj" Id="d858ba9d-1325-41ec-a61c-dca52774d1e5">
+    <Platform Solution="*|x64" Project="x64" />
+  </Project>
+</Solution>
