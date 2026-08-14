@@ -87,6 +87,11 @@
     <Compile Include="KaidoController.cs" />
     <Compile Include="KidController.cs" />
     <Compile Include="FrankyController.cs" />
+    <Compile Include="LawController.cs" />
+    <Compile Include="ArlongController.cs" />
+    <Compile Include="KuroController.cs" />
+    <Compile Include="DoflamingoController.cs" />
+    <Compile Include="ChopperController.cs" />
     <Compile Include="SanjiController.cs" />
     <Compile Include="AceLogic.cs" />
     <Compile Include="AokijiLogic.cs" />
@@ -94,6 +99,11 @@
     <Compile Include="KaidoLogic.cs" />
     <Compile Include="KidLogic.cs" />
     <Compile Include="FrankyLogic.cs" />
+    <Compile Include="KuroLogic.cs" />
+    <Compile Include="ArlongLogic.cs" />
+    <Compile Include="LawLogic.cs" />
+    <Compile Include="DoflamingoLogic.cs" />
+    <Compile Include="ChopperLogic.cs" />
     <Compile Include="SanjiLogic.cs" />
     <Compile Include="ZoroController.cs" />
     <Compile Include="ZoroLogic.cs" />

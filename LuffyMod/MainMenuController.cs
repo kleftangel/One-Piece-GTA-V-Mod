@@ -15,6 +15,7 @@ namespace AnimeCharacterMod
         private NativeCheckboxItem luffyToggle;
         private NativeCheckboxItem zoroToggle;
         private NativeCheckboxItem sanjiToggle;
+        private NativeCheckboxItem chopperToggle;
         private NativeCheckboxItem frankyToggle;
         private NativeCheckboxItem aceToggle;
         private NativeCheckboxItem akainuToggle;
@@ -24,6 +25,11 @@ namespace AnimeCharacterMod
         private NativeCheckboxItem garpToggle;
         private NativeCheckboxItem kaidoToggle;
         private NativeCheckboxItem kidToggle;
+        private NativeCheckboxItem arlongToggle;
+        private NativeCheckboxItem lawToggle;
+        private NativeCheckboxItem kuroToggle;
+        private NativeCheckboxItem doflamingoToggle;
+
 
         private bool isMenuReady = false;
         private int startupDelayTime = 0;
@@ -31,6 +37,7 @@ namespace AnimeCharacterMod
         public static bool IsLuffyActive = false;
         public static bool IsZoroActive = false;
         public static bool IsSanjiActive = false;
+        public static bool IsChopperActive = false;
         public static bool IsFrankyActive = false;
         public static bool IsAceActive = false;
         public static bool IsAkainuActive = false;
@@ -40,6 +47,11 @@ namespace AnimeCharacterMod
         public static bool IsGarpActive = false;
         public static bool IsKaidoActive = false;
         public static bool IsKidActive = false;
+        public static bool IsArlongActive = false;
+        public static bool IsLawActive = false;
+        public static bool IsKuroActive = false;
+        public static bool IsDoflamingoActive = false;
+
 
         // --- ZORO CUSTOM COMPONENT VARIATION MATRIX ---
         // Format: { ComponentID, DrawableID, TextureID }
@@ -61,6 +73,7 @@ namespace AnimeCharacterMod
             luffyToggle = new NativeCheckboxItem("Luffy Active", "Enable controls & logic for Luffy.", false);
             zoroToggle = new NativeCheckboxItem("Zoro Active", "Enable controls & logic for Zoro.", false);
             sanjiToggle = new NativeCheckboxItem("Sanji Active", "Enable controls & logic for Sanji.", false);
+            chopperToggle = new NativeCheckboxItem("Chopper Active", "Enable controls & logic for Chopper.", false);
             frankyToggle = new NativeCheckboxItem("Franky Active", "Enable controls & logic for Franky.", false);
             aceToggle = new NativeCheckboxItem("Ace Active", "Enable controls & logic for Ace.", false);
             akainuToggle = new NativeCheckboxItem("Akainu Active", "Enable controls & logic for Akainu.", false);
@@ -70,10 +83,15 @@ namespace AnimeCharacterMod
             garpToggle = new NativeCheckboxItem("Garp Active", "Enable controls & logic for Garp.", false);
             kaidoToggle = new NativeCheckboxItem("Kaido Active", "Enable controls & logic for Kaido.", false);
             kidToggle = new NativeCheckboxItem("Eustass Kid Active", "Enable controls & logic for Kid.", false);
+            arlongToggle = new NativeCheckboxItem("Arlong Active", "Enable controls & logic for Arlong.", false);
+            lawToggle = new NativeCheckboxItem("Law Active", "Enable controls & logic for Law.", false);
+            kuroToggle = new NativeCheckboxItem("Kuro Active", "Enable controls & logic for Kuro.", false);
+            doflamingoToggle = new NativeCheckboxItem("Doflamingo Active", "Enable controls & logic for Doflamingo.", false);
 
             mainMenu.Add(luffyToggle);
             mainMenu.Add(zoroToggle);
             mainMenu.Add(sanjiToggle);
+            mainMenu.Add(chopperToggle);
             mainMenu.Add(frankyToggle);
             mainMenu.Add(aceToggle);
             mainMenu.Add(akainuToggle);
@@ -83,21 +101,30 @@ namespace AnimeCharacterMod
             mainMenu.Add(garpToggle);
             mainMenu.Add(kaidoToggle);
             mainMenu.Add(kidToggle);
+            mainMenu.Add(arlongToggle);
+            mainMenu.Add(lawToggle);
+            mainMenu.Add(kuroToggle);
+            mainMenu.Add(doflamingoToggle);
 
             pool.Add(mainMenu);
 
             luffyToggle.CheckboxChanged += (s, a) => EnforceMutualExclusion(1, luffyToggle.Checked);
             zoroToggle.CheckboxChanged += (s, a) => EnforceMutualExclusion(2, zoroToggle.Checked);
             sanjiToggle.CheckboxChanged += (s, a) => EnforceMutualExclusion(3, sanjiToggle.Checked);
-            frankyToggle.CheckboxChanged += (s, a) => EnforceMutualExclusion(4, frankyToggle.Checked);
-            aceToggle.CheckboxChanged += (s, a) => EnforceMutualExclusion(5, aceToggle.Checked);
-            akainuToggle.CheckboxChanged += (s, a) => EnforceMutualExclusion(6, akainuToggle.Checked);
-            crocodileToggle.CheckboxChanged += (s, a) => EnforceMutualExclusion(7, crocodileToggle.Checked);
-            oarsToggle.CheckboxChanged += (s, a) => EnforceMutualExclusion(8, oarsToggle.Checked);
-            aokijiToggle.CheckboxChanged += (s, a) => EnforceMutualExclusion(9, aokijiToggle.Checked);
-            garpToggle.CheckboxChanged += (s, a) => EnforceMutualExclusion(10, garpToggle.Checked);
-            kaidoToggle.CheckboxChanged += (s, a) => EnforceMutualExclusion(11, kaidoToggle.Checked);
-            kidToggle.CheckboxChanged += (s, a) => EnforceMutualExclusion(12, kidToggle.Checked);
+            chopperToggle.CheckboxChanged += (s, a) => EnforceMutualExclusion(4, chopperToggle.Checked);
+            frankyToggle.CheckboxChanged += (s, a) => EnforceMutualExclusion(5, frankyToggle.Checked);
+            aceToggle.CheckboxChanged += (s, a) => EnforceMutualExclusion(6, aceToggle.Checked);
+            akainuToggle.CheckboxChanged += (s, a) => EnforceMutualExclusion(7, akainuToggle.Checked);
+            crocodileToggle.CheckboxChanged += (s, a) => EnforceMutualExclusion(8, crocodileToggle.Checked);
+            oarsToggle.CheckboxChanged += (s, a) => EnforceMutualExclusion(9, oarsToggle.Checked);
+            aokijiToggle.CheckboxChanged += (s, a) => EnforceMutualExclusion(10, aokijiToggle.Checked);
+            garpToggle.CheckboxChanged += (s, a) => EnforceMutualExclusion(11, garpToggle.Checked);
+            kaidoToggle.CheckboxChanged += (s, a) => EnforceMutualExclusion(12, kaidoToggle.Checked);
+            kidToggle.CheckboxChanged += (s, a) => EnforceMutualExclusion(13, kidToggle.Checked);
+            arlongToggle.CheckboxChanged += (s, a) => EnforceMutualExclusion(14, arlongToggle.Checked);
+            lawToggle.CheckboxChanged += (s, a) => EnforceMutualExclusion(15, lawToggle.Checked);
+            kuroToggle.CheckboxChanged += (s, a) => EnforceMutualExclusion(16, kuroToggle.Checked);
+            doflamingoToggle.CheckboxChanged += (s, a) => EnforceMutualExclusion(17, doflamingoToggle.Checked);
 
             isMenuReady = true;
         }
@@ -160,6 +187,7 @@ namespace AnimeCharacterMod
         // Exact string identifiers matching your AddonPeds configuration layout
         private const string LUFFY_PED_MODEL_NAME = "MonkeyDLuffy";
         private const string ZORO_PED_MODEL_NAME = "One_Piece_Zoro";
+        private const string CHOPPER_PED_MODEL_NAME = "Chopper";
         private const string FRANKY_PED_MODEL_NAME = "Franky V2";
         private const string ACE_PED_MODEL_NAME = "AceJUMPFORCE";
         private const string AKAINU_PED_MODEL_NAME = "Akainu";
@@ -169,6 +197,11 @@ namespace AnimeCharacterMod
         private const string GARP_PED_MODEL_NAME = "Garp";
         private const string KAIDO_PED_MODEL_NAME = "Kaido";
         private const string KID_PED_MODEL_NAME = "Eustass Kid";
+        private const string ARLONG_PED_MODEL_NAME = "Arlong";
+        private const string LAW_PED_MODEL_NAME = "Law New World Cotume";
+        private const string KURO_PED_MODEL_NAME = "Kuro";
+        private const string DOFLAMINGO_PED_MODEL_NAME = "Doflamingo";
+
 
         // FIXED SIGNATURE: Added the 'bool state' parameter to match your checkbox event overloads perfectly
         private bool isUpdatingUI = false;
@@ -184,8 +217,8 @@ namespace AnimeCharacterMod
             {
                 isUpdatingUI = true;
 
-                IsLuffyActive = IsZoroActive = IsSanjiActive = IsFrankyActive = IsAceActive = IsAkainuActive = IsCrocodileActive = IsOarsActive = IsAokijiActive = IsGarpActive = IsKaidoActive = IsKidActive = false;
-                luffyToggle.Checked = zoroToggle.Checked = sanjiToggle.Checked = frankyToggle.Checked = aceToggle.Checked = akainuToggle.Checked = crocodileToggle.Checked = oarsToggle.Checked = aokijiToggle.Checked = garpToggle.Checked = kaidoToggle.Checked = kidToggle.Checked = false;
+                IsLuffyActive = IsZoroActive = IsSanjiActive = IsChopperActive = IsFrankyActive = IsAceActive = IsAkainuActive = IsCrocodileActive = IsOarsActive = IsAokijiActive = IsGarpActive = IsKaidoActive = IsKidActive = IsArlongActive = IsLawActive = IsKuroActive = IsDoflamingoActive = false;
+                luffyToggle.Checked = zoroToggle.Checked = sanjiToggle.Checked = chopperToggle.Checked = frankyToggle.Checked = aceToggle.Checked = akainuToggle.Checked = crocodileToggle.Checked = oarsToggle.Checked = aokijiToggle.Checked = garpToggle.Checked = kaidoToggle.Checked = kidToggle.Checked = arlongToggle.Checked = lawToggle.Checked = kuroToggle.Checked = doflamingoToggle.Checked = false;
 
                 isUpdatingUI = false;
                 return;
@@ -195,8 +228,8 @@ namespace AnimeCharacterMod
             isUpdatingUI = true;
 
             // Reset all
-            IsLuffyActive = IsZoroActive = IsSanjiActive = IsFrankyActive = IsAceActive = IsAkainuActive = IsCrocodileActive = IsOarsActive = IsAokijiActive = IsGarpActive = IsKaidoActive = IsKidActive = false;
-            luffyToggle.Checked = zoroToggle.Checked = sanjiToggle.Checked = frankyToggle.Checked = aceToggle.Checked = akainuToggle.Checked = crocodileToggle.Checked = oarsToggle.Checked = aokijiToggle.Checked = garpToggle.Checked = kaidoToggle.Checked = kidToggle.Checked = false;
+            IsLuffyActive = IsZoroActive = IsSanjiActive = IsChopperActive = IsFrankyActive = IsAceActive = IsAkainuActive = IsCrocodileActive = IsOarsActive = IsAokijiActive = IsGarpActive = IsKaidoActive = IsKidActive = IsArlongActive = IsLawActive = IsKuroActive = IsDoflamingoActive = false;
+            luffyToggle.Checked = zoroToggle.Checked = sanjiToggle.Checked = chopperToggle.Checked = frankyToggle.Checked = aceToggle.Checked = akainuToggle.Checked = crocodileToggle.Checked = oarsToggle.Checked = aokijiToggle.Checked = garpToggle.Checked = kaidoToggle.Checked = kidToggle.Checked = arlongToggle.Checked = lawToggle.Checked = kuroToggle.Checked = doflamingoToggle.Checked = false;
 
             // Set selected
             if (selectedID == 1)
@@ -219,57 +252,87 @@ namespace AnimeCharacterMod
             }
             else if (selectedID == 4)
             {
+                IsChopperActive = true;
+                chopperToggle.Checked = true; /* Load Model */
+                ChangePlayerPedModel(CHOPPER_PED_MODEL_NAME, null); // FIXED
+            }
+            else if (selectedID == 5)
+            {
                 IsFrankyActive = true;
                 frankyToggle.Checked = true; /* Load Model */
                 ChangePlayerPedModel(FRANKY_PED_MODEL_NAME, null); // FIXED
             }
-            else if (selectedID == 5)
+            else if (selectedID == 6)
             {
                 IsAceActive = true;
                 aceToggle.Checked = true; /* Load Model */
                 ChangePlayerPedModel(ACE_PED_MODEL_NAME, null); // FIXED
             }
-            else if (selectedID == 6)
+            else if (selectedID == 7)
             {
                 IsAkainuActive = true;
                 akainuToggle.Checked = true; /* Load Model */
                 ChangePlayerPedModel(AKAINU_PED_MODEL_NAME, null);
             }
-            else if (selectedID == 7)
+            else if (selectedID == 8)
             {
                 IsCrocodileActive = true;
                 crocodileToggle.Checked = true; /* Load Model */
                 ChangePlayerPedModel(CROCODILE_PED_MODEL_NAME, null);
             }
-            else if (selectedID == 8)
+            else if (selectedID == 9)
             {
                 IsOarsActive = true;
                 oarsToggle.Checked = true; /* Load Model */
                 ChangePlayerPedModel(OARS_PED_MODEL_NAME, null);
             }
-            else if (selectedID == 9)
+            else if (selectedID == 10)
             {
                 IsAokijiActive = true;
                 aokijiToggle.Checked = true; /* Load Model */
                 ChangePlayerPedModel(AOKIJI_PED_MODEL_NAME, null);
             }
-            else if (selectedID == 10)
+            else if (selectedID == 11)
             {
                 IsGarpActive = true;
                 garpToggle.Checked = true; /* Load Model */
                 ChangePlayerPedModel(GARP_PED_MODEL_NAME, null);
             }
-            else if (selectedID == 11)
+            else if (selectedID == 12)
             {
                 IsKaidoActive = true;
                 kaidoToggle.Checked = true; /* Load Model */
                 ChangePlayerPedModel(KAIDO_PED_MODEL_NAME, null);
             }
-            else if (selectedID == 12)
+            else if (selectedID == 13)
             {
                 IsKidActive = true;
                 kidToggle.Checked = true; /* Load Model */
                 ChangePlayerPedModel(KID_PED_MODEL_NAME, null);
+            }
+            else if (selectedID == 14)
+            {
+                IsArlongActive = true;
+                arlongToggle.Checked = true; /* Load Model */
+                ChangePlayerPedModel(ARLONG_PED_MODEL_NAME, null);
+            }
+            else if (selectedID == 15)
+            {
+                IsLawActive = true;
+                lawToggle.Checked = true; /* Load Model */
+                ChangePlayerPedModel(LAW_PED_MODEL_NAME, null);
+            }
+            else if (selectedID == 16)
+            {
+                IsKuroActive = true;
+                kuroToggle.Checked = true; /* Load Model */
+                ChangePlayerPedModel(KURO_PED_MODEL_NAME, null);
+            }
+            else if (selectedID == 17)
+            {
+                IsDoflamingoActive = true;
+                doflamingoToggle.Checked = true; /* Load Model */
+                ChangePlayerPedModel(DOFLAMINGO_PED_MODEL_NAME, null);
             }
 
             // 4. Release Lock
